@@ -1,12 +1,12 @@
 "use client";
 
-import Nav from "./navbar";
-import About from "./about";
-import ImageComponent from "./image";
-import Section from "./main";
-import { ListSectionProps } from "./listSection";
+import Nav from "../components/navbar";
+import About from "../components/about";
+import ImageComponent from "../components/image";
+import Section from "../components/main";
+import { ListSectionProps } from "../components/list";
 import { MdCheck, MdCoffeeMaker } from "react-icons/md";
-import ListSection from "./listSection";
+import ListSection from "../components/list";
 
 export default function Home() {
 	const bgColor = "#EAD7BB";

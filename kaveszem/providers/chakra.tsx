@@ -1,6 +1,6 @@
 // app/providers.tsx
 "use client";
-import { customTheme } from "./theme";
+import { customTheme } from "../theme/theme";
 
 import { ChakraProvider } from "@chakra-ui/react";
 
