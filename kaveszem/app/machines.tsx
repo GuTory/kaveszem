@@ -9,6 +9,7 @@ import {
 	Text,
 } from "@chakra-ui/react";
 import { MdCoffeeMaker } from "react-icons/md";
+import { after } from 'node:test';
 
 export default function Machines() {
 	const title = "Gépeink";
@@ -20,6 +21,7 @@ export default function Machines() {
 		"Automate kávéfőző gépek (napi 50 adag alatt)",
 		"Nagy strapabírású gépek Party Service esetére",
 	];
+	const afterElementcolor = "#b86f3c";
 
 	return (
 		<Stack
@@ -43,7 +45,7 @@ export default function Machines() {
 						position: "absolute",
 						bottom: 1,
 						left: 0,
-						bg: "#b86f3c",
+						bg: afterElementcolor,
 						zIndex: -1,
 					}}
 				>
@@ -60,7 +62,7 @@ export default function Machines() {
 						>
 							<ListIcon
 								as={MdCoffeeMaker}
-								color="green.500"
+								color={afterElementcolor}
 							/>
 							{machine}
 						</ListItem>

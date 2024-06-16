@@ -54,7 +54,7 @@ export default function Nav() {
 	return (
 		<>
 			<Box
-				bg={useColorModeValue("#4B6041", "#4B6041")}
+				bg={useColorModeValue("#b86f3c", "#4B6041")}
 				px={4}
 			>
 				<Flex

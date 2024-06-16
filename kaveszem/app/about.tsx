@@ -10,6 +10,7 @@ export default function About() {
 		"Megbízható kávégépeinkkel és szakértelmünkkel garantáltan kiváló minőségű kávéélményt nyújtunk ügyfeleinknek! Legyen szó kisvállalkozásról vagy nagyobb vendéglátóegységről. Célunk, hogy kielégítsük ügyfeleink igényeit és hozzájáruljunk az üzleti sikerükhöz.",
 		"Legyen részese Ön is a kávézás élményének, és bízza ránk a kávégépekkel kapcsolatos igényeit, problémáit!",
 	];
+	const afterElementcolor = "#b86f3c";
 
 	return (
 		<>
@@ -34,7 +35,7 @@ export default function About() {
 							position: "absolute",
 							bottom: 1,
 							left: 0,
-							bg: "#b86f3c",
+							bg: afterElementcolor,
 							zIndex: -1,
 						}}
 					>
