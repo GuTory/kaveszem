@@ -3,7 +3,7 @@
 import Nav from "./navbar";
 import About from "./about";
 import ImageComponent from "./image";
-import Section from "./mainsection";
+import Section from "./main";
 import { ListSectionProps } from "./listSection";
 import { MdCheck, MdCoffeeMaker } from "react-icons/md";
 import ListSection from "./listSection";
