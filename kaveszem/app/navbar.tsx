@@ -13,12 +13,18 @@ import {
 	Text,
 } from "@chakra-ui/react";
 import { HamburgerIcon, CloseIcon, MoonIcon, SunIcon } from "@chakra-ui/icons";
+import { use } from "react";
 
 interface Props {
 	children: React.ReactNode;
 }
 
 const Links = ["Szolgáltatásaink", "Kávégépek", "Árazás", "Elérhetőség"];
+
+const useHoverProps = () => ({
+	textDecoration: "none",
+	bg: useColorModeValue("#84502b", "#2c3926"),
+});
 
 const NavLink = (props: Props) => {
 	const { children } = props;
@@ -29,10 +35,7 @@ const NavLink = (props: Props) => {
 			px={2}
 			py={1}
 			rounded={"md"}
-			_hover={{
-				textDecoration: "none",
-				bg: useColorModeValue("gray.200", "gray.700"),
-			}}
+			_hover={useHoverProps()}
 			href={"#"}
 		>
 			{children}
@@ -45,11 +48,6 @@ export default function Nav() {
 	const { isOpen, onOpen, onClose } = useDisclosure();
 	const textColor = useColorModeValue("#211505", "#211505");
 	const companyName = "Kávészem Bt.";
-
-	const hoverProps = {
-		textDecoration: "none",
-		bg: useColorModeValue("#68865a", "#2c3926"),
-	}
 
 	return (
 		<>
@@ -69,7 +67,7 @@ export default function Nav() {
 						display={{ md: "none" }}
 						onClick={isOpen ? onClose : onOpen}
 						variant="ghost"
-						_hover={hoverProps}
+						_hover={useHoverProps()}
 					/>
 					<HStack
 						spacing={8}
@@ -82,12 +80,7 @@ export default function Nav() {
 							display={{ base: "none", md: "flex" }}
 						>
 							{Links.map((link) => (
-								<Text
-									key={link}
-									color={textColor}
-								>
-									{link}
-								</Text>
+								<NavLink key={link}>{link}</NavLink>
 							))}
 						</HStack>
 					</HStack>
@@ -99,7 +92,7 @@ export default function Nav() {
 							<Button
 								onClick={toggleColorMode}
 								variant="ghost"
-								_hover={hoverProps}
+								_hover={useHoverProps()}
 							>
 								{colorMode === "light" ? <SunIcon /> : <MoonIcon />}
 							</Button>

@@ -1,5 +1,3 @@
-"use client";
-
 import {
 	Heading,
 	List,
@@ -7,21 +5,19 @@ import {
 	ListItem,
 	Stack,
 	Text,
+	useColorModeValue,
 } from "@chakra-ui/react";
-import { MdCoffeeMaker } from "react-icons/md";
-import { after } from 'node:test';
+import { IconType } from "react-icons";
 
-export default function Machines() {
-	const title = "Gépeink";
+export interface ListSectionProps {
+  title: string;
+  items: Array<string>;
+  icon: IconType;
+}
+
+export default function ListSection(props : ListSectionProps) {
 	const textColor = "gray.700";
-	const machines = [
-		"Karos kávéfőző gépek minden felszerelésével (1 és 2 karos kivitelben)",
-		"Kapszulás (1 és 2 fejes kávéfőző gépek)",
-		"Asztali italautómaták",
-		"Automate kávéfőző gépek (napi 50 adag alatt)",
-		"Nagy strapabírású gépek Party Service esetére",
-	];
-	const afterElementcolor = "#b86f3c";
+	const afterElementcolor = useColorModeValue("#b86f3c", "#4b6041");
 
 	return (
 		<Stack
@@ -49,22 +45,22 @@ export default function Machines() {
 						zIndex: -1,
 					}}
 				>
-					{title}
+					{props.title}
 				</Text>
 			</Heading>
 
 			<List spacing={{ base: 3, md: 6 }}>
-				{machines.map((machine, index) => {
+				{props.items.map((service, index) => {
 					return (
 						<ListItem
-							color={textColor}
 							key={index}
+							color={textColor}
 						>
 							<ListIcon
-								as={MdCoffeeMaker}
+								as={props.icon}
 								color={afterElementcolor}
 							/>
-							{machine}
+							{service}
 						</ListItem>
 					);
 				})}

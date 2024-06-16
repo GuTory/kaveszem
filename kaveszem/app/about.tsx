@@ -1,6 +1,6 @@
 "use client";
 
-import { Stack, Heading, Text } from "@chakra-ui/react";
+import { Stack, Heading, Text, useColorModeValue } from "@chakra-ui/react";
 
 export default function About() {
 	const textColor = "gray.700";
@@ -10,7 +10,7 @@ export default function About() {
 		"Megbízható kávégépeinkkel és szakértelmünkkel garantáltan kiváló minőségű kávéélményt nyújtunk ügyfeleinknek! Legyen szó kisvállalkozásról vagy nagyobb vendéglátóegységről. Célunk, hogy kielégítsük ügyfeleink igényeit és hozzájáruljunk az üzleti sikerükhöz.",
 		"Legyen részese Ön is a kávézás élményének, és bízza ránk a kávégépekkel kapcsolatos igényeit, problémáit!",
 	];
-	const afterElementcolor = "#b86f3c";
+	const afterElementcolor = useColorModeValue("#b86f3c", "#4b6041");
 
 	return (
 		<>
