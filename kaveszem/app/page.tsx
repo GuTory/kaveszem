@@ -3,15 +3,17 @@ import Nav from "./navbar";
 import Section from './section';
 import About from "./about";
 import Services from "./services";
-import Maschines from './machines';
 import Machines from './machines';
 import ImageComponent from './image';
+import { useColorModeValue } from "@chakra-ui/react";
 
 export default function Home() {
+	const bgColor = "#EAD7BB";
+
 	return (
 		<>
 			<Nav />
-			<main>
+			<main style={{backgroundColor: bgColor}}>
 				<Section>
 					<About />
 					<ImageComponent src={"coffee_machine.jpg"} />

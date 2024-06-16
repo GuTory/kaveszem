@@ -11,7 +11,7 @@ import {
 } from "@chakra-ui/react";
 export default function Services() {
 	const title = "Szolgáltatásaink";
-	const textColor = "gray.500";
+	const textColor = "gray.700";
 	const services = [
 		"Ügyfeleink kérésének megfelelő kávéfőző gépek bérbeadása",
 		"24 órán belüli szervíz partnereink részére",
@@ -22,6 +22,7 @@ export default function Services() {
 		<Stack
 			flex={1}
 			spacing={{ base: 3, md: 6 }}
+			zIndex={10}
 		>
 			<Heading
 				lineHeight={1.1}
@@ -31,6 +32,7 @@ export default function Services() {
 				<Text
 					as={"span"}
 					position={"relative"}
+					color={textColor}
 					_after={{
 						content: "''",
 						width: "full",
