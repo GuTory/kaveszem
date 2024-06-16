@@ -1,9 +1,9 @@
 "use client";
 
-import { Stack, Heading, Text, Image } from "@chakra-ui/react";
+import { Stack, Heading, Text } from "@chakra-ui/react";
 
 export default function About() {
-	const textColor = "gray.500";
+	const textColor = "gray.700";
 	const title = "Cégünkről";
 	const aboutText = [
 		"Cégünk több mint 24 éve áll az Önök szolgálatában, és kiemelt specializációnk a kávégépek bérbeadása. Büszkék vagyunk arra, hogy több mint 100 partnerrel dolgozunk együtt nap mint nap.",
@@ -16,6 +16,7 @@ export default function About() {
 			<Stack
 				flex={1}
 				spacing={{ base: 3, md: 6 }}
+				zIndex={10}
 			>
 				<Heading
 					lineHeight={1.1}
@@ -25,6 +26,7 @@ export default function About() {
 					<Text
 						as={"span"}
 						position={"relative"}
+						color={textColor}
 						_after={{
 							content: "''",
 							width: "full",

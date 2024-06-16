@@ -12,7 +12,7 @@ import { MdCoffeeMaker } from "react-icons/md";
 
 export default function Machines() {
 	const title = "Gépeink";
-	const textColor = "gray.500";
+	const textColor = "gray.700";
 	const machines = [
 		"Karos kávéfőző gépek minden felszerelésével (1 és 2 karos kivitelben)",
 		"Kapszulás (1 és 2 fejes kávéfőző gépek)",
@@ -25,6 +25,7 @@ export default function Machines() {
 		<Stack
 			flex={1}
 			spacing={{ base: 3, md: 6 }}
+			zIndex={10}
 		>
 			<Heading
 				lineHeight={1.1}
@@ -34,6 +35,7 @@ export default function Machines() {
 				<Text
 					as={"span"}
 					position={"relative"}
+					color={textColor}
 					_after={{
 						content: "''",
 						width: "full",
