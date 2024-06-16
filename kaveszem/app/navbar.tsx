@@ -46,6 +46,11 @@ export default function Nav() {
 	const textColor = useColorModeValue("#211505", "#211505");
 	const companyName = "Kávészem Bt.";
 
+	const hoverProps = {
+		textDecoration: "none",
+		bg: useColorModeValue("#68865a", "#2c3926"),
+	}
+
 	return (
 		<>
 			<Box
@@ -63,6 +68,8 @@ export default function Nav() {
 						aria-label={"Open Menu"}
 						display={{ md: "none" }}
 						onClick={isOpen ? onClose : onOpen}
+						variant="ghost"
+						_hover={hoverProps}
 					/>
 					<HStack
 						spacing={8}
@@ -92,10 +99,7 @@ export default function Nav() {
 							<Button
 								onClick={toggleColorMode}
 								variant="ghost"
-								_hover={{
-									textDecoration: "none",
-									bg: useColorModeValue("#68865a", "#2c3926"),
-								}}
+								_hover={hoverProps}
 							>
 								{colorMode === "light" ? <SunIcon /> : <MoonIcon />}
 							</Button>
