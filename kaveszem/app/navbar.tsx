@@ -25,6 +25,7 @@ const useHoverProps = () => ({
 	textDecoration: "none",
 	bg: useColorModeValue("#84502b", "#2c3926"),
 });
+const useTextColor = () => useColorModeValue("#211505", "#211505");
 
 const NavLink = (props: Props) => {
 	const { children } = props;
@@ -35,6 +36,7 @@ const NavLink = (props: Props) => {
 			px={2}
 			py={1}
 			rounded={"md"}
+			color={useTextColor()}
 			_hover={useHoverProps()}
 			href={"#"}
 		>
@@ -46,7 +48,6 @@ const NavLink = (props: Props) => {
 export default function Nav() {
 	const { colorMode, toggleColorMode } = useColorMode();
 	const { isOpen, onOpen, onClose } = useDisclosure();
-	const textColor = useColorModeValue("#211505", "#211505");
 	const companyName = "Kávészem Bt.";
 
 	return (
@@ -73,7 +74,7 @@ export default function Nav() {
 						spacing={8}
 						alignItems={"center"}
 					>
-						<Box color={textColor}>{companyName}</Box>
+						<Box color={useTextColor()}>{companyName}</Box>
 						<HStack
 							as={"nav"}
 							spacing={4}
