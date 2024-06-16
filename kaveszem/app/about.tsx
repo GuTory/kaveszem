@@ -1,7 +1,6 @@
 "use client";
 
-import { Stack, Flex, Box, Heading, Text, Image } from "@chakra-ui/react";
-import ImageComponent from "./image";
+import { Stack, Heading, Text, Image } from "@chakra-ui/react";
 
 export default function About() {
 	const textColor = "gray.500";
