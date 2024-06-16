@@ -36,7 +36,9 @@ export default function About() {
 							bg: "#b86f3c",
 							zIndex: -1,
 						}}
-					></Text>
+					>
+						{title}
+					</Text>
 				</Heading>
 				{aboutText.map((text, index) => {
 					return (
