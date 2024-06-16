@@ -17,6 +17,7 @@ export default function Services() {
 		"24 órán belüli szervíz partnereink részére",
 		"Ön által választott szemes kávé az árban",
 	];
+	const afterElementcolor = "#b86f3c";
 
 	return (
 		<Stack
@@ -40,7 +41,7 @@ export default function Services() {
 						position: "absolute",
 						bottom: 1,
 						left: 0,
-						bg: "#b86f3c",
+						bg: afterElementcolor,
 						zIndex: -1,
 					}}
 				>
@@ -51,10 +52,13 @@ export default function Services() {
 			<List spacing={{ base: 3, md: 6 }}>
 				{services.map((service, index) => {
 					return (
-						<ListItem key={index} color={textColor}>
+						<ListItem
+							key={index}
+							color={textColor}
+						>
 							<ListIcon
 								as={MdCheck}
-								color="green.500"
+								color={afterElementcolor}
 							/>
 							{service}
 						</ListItem>
