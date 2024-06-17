@@ -14,18 +14,13 @@ import {
 } from "@chakra-ui/react";
 import { HamburgerIcon, CloseIcon, MoonIcon, SunIcon } from "@chakra-ui/icons";
 import { use } from "react";
+import { useHoverProps, useNavBarColor, useTextColor } from "@/theme/theme";
 
 interface Props {
 	children: React.ReactNode;
 }
 
 const Links = ["Szolgáltatásaink", "Kávégépek", "Árazás", "Elérhetőség"];
-
-const useHoverProps = () => ({
-	textDecoration: "none",
-	bg: useColorModeValue("#84502b", "#2c3926"),
-});
-const useTextColor = () => useColorModeValue("#211505", "#211505");
 
 const NavLink = (props: Props) => {
 	const { children } = props;
@@ -53,7 +48,7 @@ export default function Nav() {
 	return (
 		<>
 			<Box
-				bg={useColorModeValue("#b86f3c", "#4B6041")}
+				bg={useNavBarColor()}
 				px={4}
 			>
 				<Flex
@@ -68,6 +63,7 @@ export default function Nav() {
 						display={{ md: "none" }}
 						onClick={isOpen ? onClose : onOpen}
 						variant="ghost"
+						color={useTextColor()}
 						_hover={useHoverProps()}
 					/>
 					<HStack
@@ -93,6 +89,7 @@ export default function Nav() {
 							<Button
 								onClick={toggleColorMode}
 								variant="ghost"
+								color={useTextColor()}
 								_hover={useHoverProps()}
 							>
 								{colorMode === "light" ? <SunIcon /> : <MoonIcon />}

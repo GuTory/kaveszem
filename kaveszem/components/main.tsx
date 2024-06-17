@@ -1,20 +1,25 @@
 import { Container, Stack } from "@chakra-ui/react";
 
-export default function Section({ children }: { children: React.ReactNode }) {
+interface ISectionProps {
+	align: "top" | "center";
+	children: React.ReactNode;
+}
+
+export default function Section(props: ISectionProps) {
 	return (
 		<Container
 			maxW={"6xl"}
 			centerContent
 		>
 			<Stack
-				align={"center"}
+				align={props.align}
 				w={"full"}
 				spacing={{ base: 8, md: 10 }}
 				py={{ base: 10, md: 14 }}
 				px={{ base: 2, md: 4 }}
 				direction={{ base: "column", md: "row" }}
 			>
-				{children}
+				{props.children}
 			</Stack>
 		</Container>
 	);

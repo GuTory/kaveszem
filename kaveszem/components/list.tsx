@@ -1,3 +1,4 @@
+import { useNavBarColor, useTextColor } from "@/theme/theme";
 import {
 	Heading,
 	List,
@@ -8,16 +9,17 @@ import {
 	useColorModeValue,
 } from "@chakra-ui/react";
 import { IconType } from "react-icons";
+import { text } from "stream/consumers";
 
 export interface ListSectionProps {
-  title: string;
-  items: Array<string>;
-  icon: IconType;
+	title: string;
+	items: Array<string>;
+	icon: IconType;
 }
 
-export default function ListSection(props : ListSectionProps) {
-	const textColor = "gray.700";
-	const afterElementcolor = useColorModeValue("#b86f3c", "#4b6041");
+export default function ListSection(props: ListSectionProps) {
+	const afterElementcolor = useNavBarColor();
+	const textColor = useTextColor();
 
 	return (
 		<Stack
@@ -37,10 +39,10 @@ export default function ListSection(props : ListSectionProps) {
 					_after={{
 						content: "''",
 						width: "full",
-						height: "30%",
+						height: "25%",
 						position: "absolute",
 						bottom: 1,
-						left: 0,
+						left: 1,
 						bg: afterElementcolor,
 						zIndex: -1,
 					}}
