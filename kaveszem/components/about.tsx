@@ -1,9 +1,13 @@
 "use client";
 
 import { useNavBarColor, useTextColor } from "@/theme/theme";
-import { Stack, Heading, Text, useColorModeValue } from "@chakra-ui/react";
+import { Stack, Heading, Text } from "@chakra-ui/react";
 
-export default function About() {
+interface AboutProps {
+	id: string;
+}
+
+export default function About(props: AboutProps) {
 	const title = "Cégünkről";
 	const aboutText = [
 		"Cégünk több mint 24 éve áll az Önök szolgálatában, és kiemelt specializációnk a kávégépek bérbeadása. Büszkék vagyunk arra, hogy több mint 100 partnerrel dolgozunk együtt nap mint nap.",
@@ -19,6 +23,7 @@ export default function About() {
 				flex={1}
 				spacing={{ base: 3, md: 6 }}
 				zIndex={10}
+				id={props.id}
 			>
 				<Heading
 					lineHeight={1.1}

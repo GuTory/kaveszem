@@ -6,12 +6,11 @@ import {
 	ListItem,
 	Stack,
 	Text,
-	useColorModeValue,
 } from "@chakra-ui/react";
 import { IconType } from "react-icons";
-import { text } from "stream/consumers";
 
 export interface ListSectionProps {
+	id: string;
 	title: string;
 	items: Array<string>;
 	icon: IconType;
@@ -26,6 +25,7 @@ export default function ListSection(props: ListSectionProps) {
 			flex={1}
 			spacing={{ base: 3, md: 6 }}
 			zIndex={10}
+			id={props.id}
 		>
 			<Heading
 				lineHeight={1.1}
