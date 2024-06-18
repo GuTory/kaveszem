@@ -10,12 +10,13 @@ import {
 import { IconType } from "react-icons";
 
 export interface ListSectionProps {
+	id: string;
 	title: string;
 	items: Array<string>;
 	icon: IconType;
 }
 
-export default async function ListSection(props: ListSectionProps) {
+export default function ListSection(props: ListSectionProps) {
 	const afterElementcolor = useNavBarColor();
 	const textColor = useTextColor();
 
@@ -24,6 +25,7 @@ export default async function ListSection(props: ListSectionProps) {
 			flex={1}
 			spacing={{ base: 3, md: 6 }}
 			zIndex={10}
+			id={props.id}
 		>
 			<Heading
 				lineHeight={1.1}

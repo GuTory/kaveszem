@@ -5,7 +5,7 @@ interface ISectionProps {
 	children: React.ReactNode;
 }
 
-export default async function Section(props: ISectionProps) {
+export default function Section(props: ISectionProps) {
 	return (
 		<Container
 			maxW={"6xl"}

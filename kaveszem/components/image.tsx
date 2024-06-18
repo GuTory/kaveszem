@@ -4,7 +4,7 @@ interface ImageComponentProps {
 	src: string;
 }
 
-export default async function ImageComponent(props: ImageComponentProps) {
+export default function ImageComponent(props: ImageComponentProps) {
 	return (
 		<Flex
 			flex={1}

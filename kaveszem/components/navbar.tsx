@@ -13,14 +13,24 @@ import {
 import { HamburgerIcon, CloseIcon, MoonIcon, SunIcon } from "@chakra-ui/icons";
 import { useHoverProps, useNavBarColor, useTextColor } from "@/theme/theme";
 
-interface Props {
-	children: React.ReactNode;
+interface NavProps {
+	links: string[][];
 }
 
-const Links = ["Szolgáltatásaink", "Kávégépek", "Árazás", "Elérhetőség"];
+interface NavLinkProps {
+  key: string;
+  links: string[];
+}
 
-const NavLink = (props: Props) => {
-	const { children } = props;
+const clickEvent = (event: React.SyntheticEvent) => {
+	event.preventDefault();
+	const target = event.target as HTMLElement;
+	const id = target.getAttribute("href")?.replace("#", "");
+	const element = document.getElementById(String(id));
+	element?.scrollIntoView({ behavior: "smooth" });
+}
+
+const NavLink = (props: NavLinkProps) => {
 
 	return (
 		<Box
@@ -30,14 +40,14 @@ const NavLink = (props: Props) => {
 			rounded={"md"}
 			color={useTextColor()}
 			_hover={useHoverProps()}
-			href={"#"}
+			href={"#" + props.links[1]}
 		>
-			{children}
+			{props.links[0]}
 		</Box>
 	);
 };
 
-export default function Nav() {
+export default function Nav(props : NavProps) {
 	const { colorMode, toggleColorMode } = useColorMode();
 	const { isOpen, onOpen, onClose } = useDisclosure();
 	const companyName = "Kávészem Bt.";
@@ -72,9 +82,10 @@ export default function Nav() {
 							as={"nav"}
 							spacing={4}
 							display={{ base: "none", md: "flex" }}
+							onClick={clickEvent}
 						>
-							{Links.map((link) => (
-								<NavLink key={link}>{link}</NavLink>
+							{props.links.map((link) => (
+								<NavLink key={link[0]} links={link}/>
 							))}
 						</HStack>
 					</HStack>
@@ -103,9 +114,10 @@ export default function Nav() {
 						<Stack
 							as={"nav"}
 							spacing={4}
+							onClick={clickEvent}	
 						>
-							{Links.map((link) => (
-								<NavLink key={link}>{link}</NavLink>
+							{props.links.map((link) => (
+								<NavLink key={link[0]} links={link}/>
 							))}
 						</Stack>
 					</Box>
