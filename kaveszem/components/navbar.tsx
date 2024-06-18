@@ -7,13 +7,10 @@ import {
 	IconButton,
 	Button,
 	useDisclosure,
-	useColorModeValue,
 	Stack,
 	useColorMode,
-	Text,
 } from "@chakra-ui/react";
 import { HamburgerIcon, CloseIcon, MoonIcon, SunIcon } from "@chakra-ui/icons";
-import { use } from "react";
 import { useHoverProps, useNavBarColor, useTextColor } from "@/theme/theme";
 
 interface Props {

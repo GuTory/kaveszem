@@ -6,10 +6,8 @@ import {
 	ListItem,
 	Stack,
 	Text,
-	useColorModeValue,
 } from "@chakra-ui/react";
 import { IconType } from "react-icons";
-import { text } from "stream/consumers";
 
 export interface ListSectionProps {
 	title: string;
@@ -17,7 +15,7 @@ export interface ListSectionProps {
 	icon: IconType;
 }
 
-export default function ListSection(props: ListSectionProps) {
+export default async function ListSection(props: ListSectionProps) {
 	const afterElementcolor = useNavBarColor();
 	const textColor = useTextColor();
 
