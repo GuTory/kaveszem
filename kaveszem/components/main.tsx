@@ -1,8 +1,8 @@
 import { useBgColor } from "@/theme/theme";
-import { Container, Stack } from "@chakra-ui/react";
+import { Container, Stack, StackDirection } from "@chakra-ui/react";
 
 interface ISectionProps {
-	align: "top" | "center";
+	direction: StackDirection;
 	children: React.ReactNode;
 }
 
@@ -14,12 +14,12 @@ export default function Section(props: ISectionProps) {
 			bg={useBgColor()}
 		>
 			<Stack
-				align={{ base: "left", md: props.align }}
+				align={{ base: "left", md: "center" }}
 				w={"full"}
 				spacing={{ base: 8, md: 10 }}
 				py={{ base: 10, md: 14 }}
 				px={{ base: 2, md: 4 }}
-				direction={{ base: "column", md: "row" }}
+				direction={props.direction}
 			>
 				{props.children}
 			</Stack>

@@ -20,8 +20,3 @@ export const useTextColor = () => useColorModeValue("#2D3748", "#FED8B1");
 export const useNavBarColor = () =>
 	useColorModeValue("rgba(184, 111, 60, 0.6)", "rgba(54, 21, 0, 0.6)");
 //export const useNavBarColor = () => useColorModeValue('linear(to-r, gray.300, yellow.400, pink.200)', 'linear(to-r, gray.300, yellow.400, pink.200)');
-
-export const useHoverProps = () => ({
-	textDecoration: "none",
-	bg: useColorModeValue("#84502b", "#1C0A00"),
-});
