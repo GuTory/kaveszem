@@ -36,16 +36,6 @@ export default function ListSection(props: ListSectionProps) {
 					as={"span"}
 					position={"relative"}
 					color={textColor}
-					_after={{
-						content: "''",
-						width: "full",
-						height: "25%",
-						position: "absolute",
-						bottom: 1,
-						left: 1,
-						bg: afterElementcolor,
-						zIndex: -1,
-					}}
 				>
 					{props.title}
 				</Text>

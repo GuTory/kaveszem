@@ -14,7 +14,6 @@ export default function About(props: AboutProps) {
 		"Megbízható kávégépeinkkel és szakértelmünkkel garantáltan kiváló minőségű kávéélményt nyújtunk ügyfeleinknek! Legyen szó kisvállalkozásról vagy nagyobb vendéglátóegységről. Célunk, hogy kielégítsük ügyfeleink igényeit és hozzájáruljunk az üzleti sikerükhöz.",
 		"Legyen részese Ön is a kávézás élményének, és bízza ránk a kávégépekkel kapcsolatos igényeit, problémáit!",
 	];
-	const afterElementcolor = useNavBarColor();
 	const textColor = useTextColor();
 
 	return (
@@ -34,16 +33,6 @@ export default function About(props: AboutProps) {
 						as={"span"}
 						position={"relative"}
 						color={textColor}
-						_after={{
-							content: "''",
-							width: "full",
-							height: "25%",
-							position: "absolute",
-							bottom: 1,
-							left: 1,
-							bg: afterElementcolor,
-							zIndex: -1,
-						}}
 					>
 						{title}
 					</Text>
