@@ -8,6 +8,7 @@ import { ListSectionProps } from "../components/list";
 import { MdCheck, MdCoffeeMaker, MdPhone } from "react-icons/md";
 import ListSection from "../components/list";
 import { useBgColor } from "@/theme/theme";
+import { StackDirection } from "@chakra-ui/react";
 
 export default function Home() {
 	const bgColor = useBgColor();
@@ -65,11 +66,18 @@ export default function Home() {
 		],
 		icon: MdPhone,
 	};
+
+	const normalDirection: StackDirection = { base: "column", md: "row" };
+	const reverseDirection: StackDirection = {
+		base: "column",
+		md: "row-reverse",
+	};
+
 	return (
 		<>
 			<Nav links={links} />
 			<main style={{ backgroundColor: bgColor }}>
-				<Section align="center">
+				<Section direction={normalDirection}>
 					<About id="about" />
 					<ImageComponent
 						src={
@@ -77,11 +85,11 @@ export default function Home() {
 						}
 					/>
 				</Section>
-				<Section align="center">
-					<ImageComponent src={"latte_art.jpg"} />
+				<Section direction={reverseDirection}>
 					<ListSection {...servicesInfo} />
+					<ImageComponent src={"latte_art.jpg"} />
 				</Section>
-				<Section align="center">
+				<Section direction={normalDirection}>
 					<ListSection {...machinesInfo} />
 					<ImageComponent
 						src={
@@ -89,7 +97,7 @@ export default function Home() {
 						}
 					/>
 				</Section>
-				<Section align="center">
+				<Section direction={reverseDirection}>
 					<ListSection {...pricingInfo} />
 					<ImageComponent
 						src={
@@ -97,13 +105,13 @@ export default function Home() {
 						}
 					/>
 				</Section>
-				<Section align="center">
+				<Section direction={normalDirection}>
+					<ListSection {...contactInfo} />
 					<ImageComponent
 						src={
 							"https://images.unsplash.com/photo-1534536281715-e28d76689b4d?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
 						}
 					/>
-					<ListSection {...contactInfo} />
 				</Section>
 			</main>
 		</>
