@@ -18,20 +18,11 @@ interface NavProps {
 }
 
 interface NavLinkProps {
-  key: string;
-  links: string[];
-}
-
-const clickEvent = (event: React.SyntheticEvent) => {
-	event.preventDefault();
-	const target = event.target as HTMLElement;
-	const id = target.getAttribute("href")?.replace("#", "");
-	const element = document.getElementById(String(id));
-	element?.scrollIntoView({ behavior: "smooth" });
+	key: string;
+	links: string[];
 }
 
 const NavLink = (props: NavLinkProps) => {
-
 	return (
 		<Box
 			as="a"
@@ -47,16 +38,36 @@ const NavLink = (props: NavLinkProps) => {
 	);
 };
 
-export default function Nav(props : NavProps) {
+export default function Nav(props: NavProps) {
 	const { colorMode, toggleColorMode } = useColorMode();
 	const { isOpen, onOpen, onClose } = useDisclosure();
 	const companyName = "Kávészem Bt.";
+
+	const clickEvent = (event: React.SyntheticEvent) => {
+		event.preventDefault();
+		const target = event.target as HTMLElement;
+		const id = target.getAttribute("href")?.replace("#", "");
+		const element = document.getElementById(String(id));
+		const yOffset = getOffset();
+		if (!element) return;
+		const y =
+			element?.getBoundingClientRect().top + window.scrollY + yOffset;
+		window.scrollTo({
+			top: y,
+			behavior: "smooth",
+		});
+	};
+
+	const getOffset = () => {
+		return isOpen ? -280 : -80;
+	};
 
 	return (
 		<>
 			<Box
 				bg={useNavBarColor()}
 				px={4}
+				className="glassy sticky z-50 top-0 w-full"
 			>
 				<Flex
 					h={16}
@@ -77,7 +88,17 @@ export default function Nav(props : NavProps) {
 						spacing={8}
 						alignItems={"center"}
 					>
-						<Box color={useTextColor()}>{companyName}</Box>
+						<Box
+							color={useTextColor()}
+							onClick={() => {
+								window.scrollTo({
+									top: 0,
+									behavior: "smooth",
+								});
+							}}
+						>
+							{companyName}
+						</Box>
 						<HStack
 							as={"nav"}
 							spacing={4}
@@ -85,7 +106,10 @@ export default function Nav(props : NavProps) {
 							onClick={clickEvent}
 						>
 							{props.links.map((link) => (
-								<NavLink key={link[0]} links={link}/>
+								<NavLink
+									key={link[0]}
+									links={link}
+								/>
 							))}
 						</HStack>
 					</HStack>
@@ -114,10 +138,13 @@ export default function Nav(props : NavProps) {
 						<Stack
 							as={"nav"}
 							spacing={4}
-							onClick={clickEvent}	
+							onClick={clickEvent}
 						>
 							{props.links.map((link) => (
-								<NavLink key={link[0]} links={link}/>
+								<NavLink
+									key={link[0]}
+									links={link}
+								/>
 							))}
 						</Stack>
 					</Box>

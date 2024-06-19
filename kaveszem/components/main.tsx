@@ -1,3 +1,4 @@
+import { useBgColor } from "@/theme/theme";
 import { Container, Stack } from "@chakra-ui/react";
 
 interface ISectionProps {
@@ -10,9 +11,10 @@ export default function Section(props: ISectionProps) {
 		<Container
 			maxW={"6xl"}
 			centerContent
+			bg={useBgColor()}
 		>
 			<Stack
-				align={props.align}
+				align={{ base: "left", md: props.align }}
 				w={"full"}
 				spacing={{ base: 8, md: 10 }}
 				py={{ base: 10, md: 14 }}
