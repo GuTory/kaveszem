@@ -11,7 +11,8 @@ import {
 	useColorMode,
 } from "@chakra-ui/react";
 import { HamburgerIcon, CloseIcon, MoonIcon, SunIcon } from "@chakra-ui/icons";
-import { useHoverProps, useNavBarColor, useTextColor } from "@/theme/theme";
+import { useNavBarColor, useTextColor } from "@/theme/theme";
+import { after } from "node:test";
 
 interface NavProps {
 	links: string[][];
@@ -26,11 +27,27 @@ const NavLink = (props: NavLinkProps) => {
 	return (
 		<Box
 			as="a"
-			px={2}
-			py={1}
+			px={1}
+			py={0}
+			w={"fit-content"}
 			rounded={"md"}
+			position={"relative"}
 			color={useTextColor()}
-			_hover={useHoverProps()}
+			_after={{
+				content: "''",
+				position: "absolute",
+				width: "0",
+				height: "2px",
+				background: useTextColor(),
+				bottom: "0",
+				left: "0",
+			}}
+			_hover={{
+				_after: {
+					width: "100%",
+					transition: "width 0.3s",
+				},
+			}}
 			href={"#" + props.links[1]}
 		>
 			{props.links[0]}
@@ -50,8 +67,7 @@ export default function Nav(props: NavProps) {
 		const element = document.getElementById(String(id));
 		const yOffset = getOffset();
 		if (!element) return;
-		const y =
-			element?.getBoundingClientRect().top + window.scrollY + yOffset;
+		const y = element?.getBoundingClientRect().top + window.scrollY + yOffset;
 		window.scrollTo({
 			top: y,
 			behavior: "smooth",
@@ -82,7 +98,7 @@ export default function Nav(props: NavProps) {
 						onClick={isOpen ? onClose : onOpen}
 						variant="ghost"
 						color={useTextColor()}
-						_hover={useHoverProps()}
+						cursor={"pointer"}
 					/>
 					<HStack
 						spacing={8}
@@ -90,6 +106,7 @@ export default function Nav(props: NavProps) {
 					>
 						<Box
 							color={useTextColor()}
+							cursor={"pointer"}
 							onClick={() => {
 								window.scrollTo({
 									top: 0,
@@ -122,7 +139,7 @@ export default function Nav(props: NavProps) {
 								onClick={toggleColorMode}
 								variant="ghost"
 								color={useTextColor()}
-								_hover={useHoverProps()}
+								cursor={"pointer"}
 							>
 								{colorMode === "light" ? <SunIcon /> : <MoonIcon />}
 							</Button>
