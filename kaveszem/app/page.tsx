@@ -20,6 +20,17 @@ export default function Home() {
 		["Elérhetőség", "contact"],
 	];
 
+	const aboutInfo: ListSectionProps = {
+		id: "about",
+		title: "Cégünkről",
+		items: [
+			"Cégünk több mint 24 éve áll az Önök szolgálatában, és kiemelt specializációnk a kávégépek bérbeadása. Büszkék vagyunk arra, hogy több mint 100 partnerrel dolgozunk együtt nap mint nap.",
+			"Megbízható kávégépeinkkel és szakértelmünkkel garantáltan kiváló minőségű kávéélményt nyújtunk ügyfeleinknek! Legyen szó kisvállalkozásról vagy nagyobb vendéglátóegységről. Célunk, hogy kielégítsük ügyfeleink igényeit és hozzájáruljunk az üzleti sikerükhöz.",
+			"Legyen részese Ön is a kávézás élményének, és bízza ránk a kávégépekkel kapcsolatos igényeit, problémáit!",
+		],
+		fontSize: { base: "3xl", sm: "4xl", lg: "6xl" },
+	};
+
 	const servicesInfo: ListSectionProps = {
 		id: links[0][1],
 		title: links[0][0],
@@ -78,7 +89,7 @@ export default function Home() {
 			<Nav links={links} />
 			<main style={{ backgroundColor: bgColor }}>
 				<Section direction={normalDirection}>
-					<About id="about" />
+					<ListSection {...aboutInfo} />
 					<ImageComponent
 						src={
 							"https://images.unsplash.com/photo-1620807773206-49c1f2957417?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"

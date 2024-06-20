@@ -13,7 +13,8 @@ export interface ListSectionProps {
 	id: string;
 	title: string;
 	items: Array<string>;
-	icon: IconType;
+	icon?: IconType;
+	fontSize?: string;
 }
 
 export default function ListSection(props: ListSectionProps) {
@@ -30,15 +31,12 @@ export default function ListSection(props: ListSectionProps) {
 			<Heading
 				lineHeight={1.1}
 				fontWeight={600}
-				fontSize={{ base: "xl", sm: "2xl", lg: "3xl" }}
+				color={textColor}
+				fontSize={
+					props.fontSize ? props.fontSize : { base: "xl", sm: "2xl", lg: "3xl" }
+				}
 			>
-				<Text
-					as={"span"}
-					position={"relative"}
-					color={textColor}
-				>
-					{props.title}
-				</Text>
+				{props.title}
 			</Heading>
 
 			<List spacing={{ base: 3, md: 6 }}>
@@ -48,10 +46,12 @@ export default function ListSection(props: ListSectionProps) {
 							key={index}
 							color={textColor}
 						>
-							<ListIcon
-								as={props.icon}
-								color={afterElementcolor}
-							/>
+							{props.icon ? (
+								<ListIcon
+									as={props.icon}
+									color={afterElementcolor}
+								/>
+							) : null}
 							{service}
 						</ListItem>
 					);
