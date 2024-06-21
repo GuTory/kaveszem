@@ -53,7 +53,7 @@ export default function Nav(props: NavProps) {
 
 	const { scrollY } = useScroll();
 
-	useMotionValueEvent(scrollY, "change", (latest) => {
+	useMotionValueEvent(scrollY, "change", () => {
 		if (scrollY.get() > 100 && breakPointValue) {
 			setIsNarrow(true);
 		} else {
@@ -65,22 +65,24 @@ export default function Nav(props: NavProps) {
 		<MotionConfig transition={{ duration: 0.4, ease: "easeInOut" }}>
 			<motion.nav
 				initial={false}
-				className="glassy z-50 px-5 m-auto"
+				className="glassy z-50 px-5 m-auto box-border"
 				style={{
 					backgroundColor: useNavBarColor(),
 				}}
 				variants={{
 					full: {
 						position: "sticky",
-						width: "full",
+						width: "100%",
 						top: 0,
+						minWidth: "fit-content",
 						maxWidth: "100%",
 						borderRadius: "0",
 					},
 					narrow: {
 						position: "sticky",
 						top: "0.5rem",
-						maxWidth: "72rem",
+						minWidth: "fit-content",
+						maxWidth: "40%",
 						borderRadius: "9999px",
 					},
 				}}
