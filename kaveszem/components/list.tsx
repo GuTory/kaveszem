@@ -5,7 +5,6 @@ import {
 	ListIcon,
 	ListItem,
 	Stack,
-	Text,
 } from "@chakra-ui/react";
 import { IconType } from "react-icons";
 
@@ -14,7 +13,7 @@ export interface ListSectionProps {
 	title: string;
 	items: Array<string>;
 	icon?: IconType;
-	fontSize?: string;
+	fontSize?: { base: string; sm: string; lg: string };
 }
 
 export default function ListSection(props: ListSectionProps) {

@@ -12,7 +12,6 @@ import {
 } from "@chakra-ui/react";
 import { HamburgerIcon, CloseIcon, MoonIcon, SunIcon } from "@chakra-ui/icons";
 import { useNavBarColor, useTextColor } from "@/theme/theme";
-import { after } from "node:test";
 
 interface NavProps {
 	links: string[][];

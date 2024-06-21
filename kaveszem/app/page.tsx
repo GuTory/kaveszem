@@ -1,7 +1,6 @@
 "use client";
 
 import Nav from "../components/navbar";
-import About from "../components/about";
 import ImageComponent from "../components/image";
 import Section from "../components/main";
 import { ListSectionProps } from "../components/list";
