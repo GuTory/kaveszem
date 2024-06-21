@@ -1,19 +1,20 @@
 import { useNavBarColor, useTextColor } from "@/theme/theme";
-import {
-	Heading,
-	List,
-	ListIcon,
-	ListItem,
-	Stack,
-	Text,
-} from "@chakra-ui/react";
+import { Heading, List, ListIcon, ListItem, Stack } from "@chakra-ui/react";
 import { IconType } from "react-icons";
 
-export interface ListSectionProps {
+export interface ListSectionProps
+	extends ListSectionContentProps,
+		ListSectionAppearanceProps {}
+
+interface ListSectionContentProps {
 	id: string;
 	title: string;
 	items: Array<string>;
-	icon: IconType;
+}
+
+interface ListSectionAppearanceProps {
+	icon?: IconType;
+	fontSize?: { base: string; sm: string; lg: string };
 }
 
 export default function ListSection(props: ListSectionProps) {
@@ -30,15 +31,12 @@ export default function ListSection(props: ListSectionProps) {
 			<Heading
 				lineHeight={1.1}
 				fontWeight={600}
-				fontSize={{ base: "xl", sm: "2xl", lg: "3xl" }}
+				color={textColor}
+				fontSize={
+					props.fontSize ? props.fontSize : { base: "xl", sm: "2xl", lg: "3xl" }
+				}
 			>
-				<Text
-					as={"span"}
-					position={"relative"}
-					color={textColor}
-				>
-					{props.title}
-				</Text>
+				{props.title}
 			</Heading>
 
 			<List spacing={{ base: 3, md: 6 }}>
@@ -48,10 +46,12 @@ export default function ListSection(props: ListSectionProps) {
 							key={index}
 							color={textColor}
 						>
-							<ListIcon
-								as={props.icon}
-								color={afterElementcolor}
-							/>
+							{props.icon ? (
+								<ListIcon
+									as={props.icon}
+									color={afterElementcolor}
+								/>
+							) : null}
 							{service}
 						</ListItem>
 					);
