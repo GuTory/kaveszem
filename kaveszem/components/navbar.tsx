@@ -36,7 +36,7 @@ const NavLink = (props: NavLinkProps) => {
 				content: "''",
 				position: "absolute",
 				width: "0",
-				height: "2px",
+				height: "1px",
 				background: useTextColor(),
 				bottom: "0",
 				left: "0",
@@ -98,6 +98,7 @@ export default function Nav(props: NavProps) {
 						variant="ghost"
 						color={useTextColor()}
 						cursor={"pointer"}
+						_hover={{ bg: useNavBarColor() }}
 					/>
 					<HStack
 						spacing={8}
@@ -139,6 +140,7 @@ export default function Nav(props: NavProps) {
 								variant="ghost"
 								color={useTextColor()}
 								cursor={"pointer"}
+								_hover={{ bg: useNavBarColor() }}
 							>
 								{colorMode === "light" ? <SunIcon /> : <MoonIcon />}
 							</Button>

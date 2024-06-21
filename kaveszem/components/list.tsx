@@ -1,17 +1,18 @@
 import { useNavBarColor, useTextColor } from "@/theme/theme";
-import {
-	Heading,
-	List,
-	ListIcon,
-	ListItem,
-	Stack,
-} from "@chakra-ui/react";
+import { Heading, List, ListIcon, ListItem, Stack } from "@chakra-ui/react";
 import { IconType } from "react-icons";
 
-export interface ListSectionProps {
+export interface ListSectionProps
+	extends ListSectionContentProps,
+		ListSectionAppearanceProps {}
+
+interface ListSectionContentProps {
 	id: string;
 	title: string;
 	items: Array<string>;
+}
+
+interface ListSectionAppearanceProps {
 	icon?: IconType;
 	fontSize?: { base: string; sm: string; lg: string };
 }
