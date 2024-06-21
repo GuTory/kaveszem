@@ -1,8 +1,8 @@
 "use client";
 
-import Nav from "../components/navbar";
+import Nav from "../components/nav/nav";
 import ImageComponent from "../components/image";
-import Section from "../components/main";
+import Section from "../components/section";
 import { ListSectionProps } from "../components/list";
 import { MdCheck, MdCoffeeMaker, MdPhone } from "react-icons/md";
 import ListSection from "../components/list";
@@ -79,11 +79,12 @@ export default function Home() {
 		base: "column",
 		md: "row-reverse",
 	};
-
+	/**
+	 * <Example />
+	 */
 	return (
 		<>
 			<Nav links={links} />
-
 			<Section direction={normalDirection}>
 				<ListSection {...aboutInfo} />
 				<ImageComponent
