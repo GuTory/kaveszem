@@ -95,7 +95,7 @@ export default function Home() {
 				/>
 			</Section>
 			<Section direction={normalDirection}>
-				<ContactSection {...contactInfo} />
+				<ContactSection />
 				<ImageComponent
 					src={
 						"https://images.unsplash.com/photo-1534536281715-e28d76689b4d?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"

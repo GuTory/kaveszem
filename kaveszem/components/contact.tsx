@@ -1,74 +1,72 @@
 import { useNavBarColor, useTextColor } from "@/theme/theme";
 import { Heading, List, ListIcon, ListItem, Stack } from "@chakra-ui/react";
+import { useTranslations } from "next-intl";
 import Link from "next/link";
 import { IconType } from "react-icons";
+import { MdPhone } from "react-icons/md";
+import { ListSectionProps } from "./list";
 
-export interface ListSectionProps
-	extends ListSectionContentProps,
-		ListSectionAppearanceProps {}
-
-interface ListSectionContentProps {
-	id: string;
-	title: string;
-	items: Array<string>;
-}
-
-interface ListSectionAppearanceProps {
-	icon?: IconType;
-	fontSize?: { base: string; sm: string; lg: string };
-}
-
-export default function ContactSection(props: ListSectionProps) {
+export default function ContactSection() {
 	const afterElementcolor = useNavBarColor();
 	const textColor = useTextColor();
+	const t = useTranslations("Contact");
+
+	const contactInfo: ListSectionProps = {
+		id: t("Id"),
+		title: t("Title"),
+		items: t("Description").split("\n"),
+		icon: MdPhone,
+	};
 
 	return (
 		<Stack
 			flex={1}
 			spacing={{ base: 3, md: 6 }}
 			zIndex={10}
-			id={props.id}
+			id={contactInfo.id}
 		>
 			<Heading
 				lineHeight={1.1}
 				fontWeight={600}
 				color={textColor}
 				fontSize={
-					props.fontSize ? props.fontSize : { base: "xl", sm: "2xl", lg: "3xl" }
+					contactInfo.fontSize
+						? contactInfo.fontSize
+						: { base: "xl", sm: "2xl", lg: "3xl" }
 				}
 			>
-				{props.title}
+				{contactInfo.title}
 			</Heading>
 
 			<List spacing={{ base: 3, md: 6 }}>
 				<ListItem color={textColor}>
-					{props.icon ? (
+					{contactInfo.icon ? (
 						<ListIcon
-							as={props.icon}
+							as={contactInfo.icon}
 							color={afterElementcolor}
 						/>
 					) : null}
-					<Link href="mailto:urszulycs@t-online.hu">urszulycs@t-online.hu</Link>
-				</ListItem>
-				<ListItem color={textColor}>
-					{props.icon ? (
-						<ListIcon
-							as={props.icon}
-							color={afterElementcolor}
-						/>
-					) : null}
-					<Link href="tel:+36209594226">Telefon - Szeged: +36-20-9594226</Link>
-				</ListItem>
-				<ListItem color={textColor}>
-					{props.icon ? (
-						<ListIcon
-							as={props.icon}
-							color={afterElementcolor}
-						/>
-					) : null}
-					<Link href="tel:+36202938244">
-						Telefon - Budapest: +36-20-2938244
+					<Link href="mailto:urszulycs@t-online.hu">
+						{contactInfo.items[0]}
 					</Link>
+				</ListItem>
+				<ListItem color={textColor}>
+					{contactInfo.icon ? (
+						<ListIcon
+							as={contactInfo.icon}
+							color={afterElementcolor}
+						/>
+					) : null}
+					<Link href="tel:+36209594226">{contactInfo.items[1]}</Link>
+				</ListItem>
+				<ListItem color={textColor}>
+					{contactInfo.icon ? (
+						<ListIcon
+							as={contactInfo.icon}
+							color={afterElementcolor}
+						/>
+					) : null}
+					<Link href="tel:+36202938244">{contactInfo.items[2]}</Link>
 				</ListItem>
 			</List>
 		</Stack>
