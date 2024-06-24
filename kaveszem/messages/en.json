@@ -1,27 +1,27 @@
 {
   "About": {
-    "Id": "about",
-    "Title": "About us",
-    "Description": "EN: Cégünk több mint 24 éve áll az Önök szolgálatában, és kiemelt specializációnk a kávégépek bérbeadása. Büszkék vagyunk arra, hogy több mint 100 partnerrel dolgozunk együtt nap mint nap.\nMegbízható kávégépeinkkel és szakértelmünkkel garantáltan kiváló minőségű kávéélményt nyújtunk ügyfeleinknek! Legyen szó kisvállalkozásról vagy nagyobb vendéglátóegységről. Célunk, hogy kielégítsük ügyfeleink igényeit és hozzájáruljunk az üzleti sikerükhöz.\nLegyen részese Ön is a kávézás élményének, és bízza ránk a kávégépekkel kapcsolatos igényeit, problémáit!"
+    "Id": "about_us",
+    "Title": "About Us",
+    "Description": "Kávészem Bt. has been at your service for over 24 years, specializing in the rental of coffee machines. We are proud to work with more than 100 partners every day.\nWith our reliable coffee machines and expertise, we guarantee an excellent quality coffee experience for our clients, whether it is a small business or a larger hospitality unit. Our goal is to meet our clients' needs and contribute to their business success.\nBe part of the coffee experience and let us take care of your coffee machine needs and issues!"
   },
   "Services": {
-    "Id": "services",
-    "Title": "Services",
-    "Description": "EN: Ügyfeleink kérésének megfelelő kávéfőző gépek bérbeadása\n24 órán belüli szervíz partnereink részére\nÖn által választott szemes kávé az árban"
+    "Id": "our_services",
+    "Title": "Our Services",
+    "Description": "Rental of coffee machines tailored to your needs\nService within 24 hours for our partners\nCoffee beans of your choice included in the price"
   },
   "Machines": {
-    "Id": "machines",
-    "Title": "Machines",
-    "Description": "EN: Karos kávéfőző gépek minden felszerelésével (1 és 2 karos kivitelben)\nKapszulás (1 és 2 fejes kávéfőző gépek)\nAsztali italautómaták\nAutomate kávéfőző gépek (napi 50 adag alatt)\nNagy strapabírású gépek Party Service esetére"
+    "Id": "our_machines",
+    "Title": "Our Machines",
+    "Description": "Lever espresso machines with all accessories (available in 1 and 2 lever versions)\nCapsule coffee machines (available in 1 and 2 head versions)\nTabletop beverage dispensers\nAutomatic coffee machines (for less than 50 servings per day)\nHigh durability machines for Party Service"
   },
   "Pricing": {
     "Id": "pricing",
     "Title": "Pricing",
-    "Description": "EN: Utólagos adagelszámolási konstrukció\nÍgy 0 Ft befektetett tőkével veheti igénybe szolgáltatásunkat\nAz áraink tartalmazzák a gép bérlését, a felhasznált kávét és az esetleges szervízt is\nExtra üzemeltetési díj és egyéb rejtett költségek nélkül!"
+    "Description": "Post-consumption billing structure\nYou can use our service with as little as 0 Ft investment capital\nOur prices include the rental of the machine, the coffee used, and any necessary service\nNo extra operating fees or hidden costs!"
   },
   "Contact": {
     "Id": "contact",
     "Title": "Contact",
-    "Description": "EN: E-mail: urszulycs@t-online.hu\nTelefon - Szeged: +36-20-9594226\nTelefon - Budapest: +36-20-2938244"
+    "Description": "Email: urszulycs@t-online.hu\nPhone - Szeged: +36-20-9594226\nPhone - Budapest: +36-20-2938244"
   }
 }
