@@ -20,6 +20,9 @@ import {
 	MotionConfig,
 } from "framer-motion";
 import { useState } from "react";
+import { Locale } from "@/locales";
+import { useLocale } from "next-intl";
+import { useRouter } from "next/navigation";
 
 interface NavProps {
 	links: string[][];
@@ -30,6 +33,8 @@ export default function Nav(props: NavProps) {
 	const [isOpen, setIsOpen] = useState(false);
 	const [isRoundedAndNarrow, setIsNarrow] = useState(false);
 	const companyName = "Kávészem";
+	const locale = useLocale() as Locale;
+	const router = useRouter();
 
 	const getOffset = () => {
 		return isOpen ? -280 : -80;
@@ -61,6 +66,11 @@ export default function Nav(props: NavProps) {
 		}
 	});
 
+	function handleLocaleChange(newLocale: Locale): void {
+		document.cookie = `NEXT_LOCALE=${newLocale}; path=/; max-age=31536000; SameSite=Lax`;
+		router.refresh();
+	}
+
 	return (
 		<MotionConfig transition={{ duration: 0.4, ease: "easeInOut" }}>
 			<motion.nav
@@ -90,7 +100,7 @@ export default function Nav(props: NavProps) {
 			>
 				<Flex
 					w={"full"}
-					h={16}
+					h={12}
 					alignItems={"center"}
 					justifyContent={"space-between"}
 				>
@@ -135,8 +145,22 @@ export default function Nav(props: NavProps) {
 					<Flex alignItems={"center"}>
 						<Stack
 							direction={"row"}
-							spacing={7}
+							spacing={2}
+							alignItems={"center"}
 						>
+							<Button
+								onClick={() =>
+									handleLocaleChange(locale === "en" ? "hu" : "en")
+								}
+								rounded={"full"}
+								variant="ghost"
+								ml={20}
+								color={useTextColor()}
+								cursor={"pointer"}
+								_hover={{ bg: useNavBarColor() }}
+							>
+								{locale === "en" ? "EN" : "HU"}
+							</Button>
 							<Button
 								onClick={toggleColorMode}
 								rounded={"full"}
@@ -150,7 +174,6 @@ export default function Nav(props: NavProps) {
 						</Stack>
 					</Flex>
 				</Flex>
-
 				{isOpen ? (
 					<Box
 						pb={4}

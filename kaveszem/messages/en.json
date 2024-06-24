@@ -1,0 +1,27 @@
+{
+  "About": {
+    "Id": "about",
+    "Title": "About us",
+    "Description": "EN: Cégünk több mint 24 éve áll az Önök szolgálatában, és kiemelt specializációnk a kávégépek bérbeadása. Büszkék vagyunk arra, hogy több mint 100 partnerrel dolgozunk együtt nap mint nap.\nMegbízható kávégépeinkkel és szakértelmünkkel garantáltan kiváló minőségű kávéélményt nyújtunk ügyfeleinknek! Legyen szó kisvállalkozásról vagy nagyobb vendéglátóegységről. Célunk, hogy kielégítsük ügyfeleink igényeit és hozzájáruljunk az üzleti sikerükhöz.\nLegyen részese Ön is a kávézás élményének, és bízza ránk a kávégépekkel kapcsolatos igényeit, problémáit!"
+  },
+  "Services": {
+    "Id": "services",
+    "Title": "Services",
+    "Description": "EN: Ügyfeleink kérésének megfelelő kávéfőző gépek bérbeadása\n24 órán belüli szervíz partnereink részére\nÖn által választott szemes kávé az árban"
+  },
+  "Machines": {
+    "Id": "machines",
+    "Title": "Machines",
+    "Description": "EN: Karos kávéfőző gépek minden felszerelésével (1 és 2 karos kivitelben)\nKapszulás (1 és 2 fejes kávéfőző gépek)\nAsztali italautómaták\nAutomate kávéfőző gépek (napi 50 adag alatt)\nNagy strapabírású gépek Party Service esetére"
+  },
+  "Pricing": {
+    "Id": "pricing",
+    "Title": "Pricing",
+    "Description": "EN: Utólagos adagelszámolási konstrukció\nÍgy 0 Ft befektetett tőkével veheti igénybe szolgáltatásunkat\nAz áraink tartalmazzák a gép bérlését, a felhasznált kávét és az esetleges szervízt is\nExtra üzemeltetési díj és egyéb rejtett költségek nélkül!"
+  },
+  "Contact": {
+    "Id": "contact",
+    "Title": "Contact",
+    "Description": "EN: E-mail: urszulycs@t-online.hu\nTelefon - Szeged: +36-20-9594226\nTelefon - Budapest: +36-20-2938244"
+  }
+}
