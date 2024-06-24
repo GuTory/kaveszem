@@ -1,0 +1,27 @@
+{
+  "About": {
+    "Id": "rolunk",
+    "Title": "Cégünkről",
+    "Description": "A Kávészem Bt. több mint 24 éve áll az Önök szolgálatában, kiemelt specializációnk a kávégépek bérbeadása. Büszkék vagyunk arra, hogy több mint 100 partnerrel dolgozunk együtt nap mint nap.\nMegbízható kávégépeinkkel és szakértelmünkkel garantáltan kiváló minőségű kávéélményt nyújtunk ügyfeleinknek, legyen szó kisvállalkozásról vagy nagyobb vendéglátóegységről. Célunk, hogy kielégítsük ügyfeleink igényeit és hozzájáruljunk az üzleti sikerükhöz.\nLegyen részese Ön is a kávézás élményének, és bízza ránk a kávégépekkel kapcsolatos igényeit, problémáit!"
+  },
+  "Services": {
+    "Id": "szolgaltatasaink",
+    "Title": "Szolgáltatásaink",
+    "Description": "Igényeknek megfelelő kávéfőző gépek bérbeadása\n24 órán belüli szervíz partnereink részére\nÖn által választott szemes kávé az árban"
+  },
+  "Machines": {
+    "Id": "gepeink",
+    "Title": "Gépeink",
+    "Description": "Karos kávéfőző gépek minden felszereléssel (1 és 2 karos kivitelben)\nKapszulás (1 és 2 fejes kávéfőző gépek)\nAsztali italautómaták\nAutomata kávéfőző gépek (napi 50 adag alatt)\nNagy strapabírású gépek Party Service esetére"
+  },
+  "Pricing": {
+    "Id": "arazas",
+    "Title": "Árazás",
+    "Description": "Utólagos adagelszámolási konstrukció\nAkár 0 Ft befektetett tőkével veheti igénybe szolgáltatásunkat\nÁraink tartalmazzák a gép bérlését, a felhasznált kávét, és az esetleges szervízt is\nExtra üzemeltetési díj és egyéb rejtett költségek nélkül!"
+  },
+  "Contact": {
+    "Id": "elerhetoseg",
+    "Title": "Elérhetőség",
+    "Description": "E-mail: urszulycs@t-online.hu\nTelefon - Szeged: +36-20-9594226\nTelefon - Budapest: +36-20-2938244"
+  }
+}

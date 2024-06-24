@@ -1,0 +1,27 @@
+{
+  "About": {
+    "Id": "about_us",
+    "Title": "About Us",
+    "Description": "Kávészem Bt. has been at your service for over 24 years, specializing in the rental of coffee machines. We are proud to work with more than 100 partners every day.\nWith our reliable coffee machines and expertise, we guarantee an excellent quality coffee experience for our clients, whether it is a small business or a larger hospitality unit. Our goal is to meet our clients' needs and contribute to their business success.\nBe part of the coffee experience and let us take care of your coffee machine needs and issues!"
+  },
+  "Services": {
+    "Id": "our_services",
+    "Title": "Our Services",
+    "Description": "Rental of coffee machines tailored to your needs\nService within 24 hours for our partners\nCoffee beans of your choice included in the price"
+  },
+  "Machines": {
+    "Id": "our_machines",
+    "Title": "Our Machines",
+    "Description": "Lever espresso machines with all accessories (available in 1 and 2 lever versions)\nCapsule coffee machines (available in 1 and 2 head versions)\nTabletop beverage dispensers\nAutomatic coffee machines (for less than 50 servings per day)\nHigh durability machines for Party Service"
+  },
+  "Pricing": {
+    "Id": "pricing",
+    "Title": "Pricing",
+    "Description": "Post-consumption billing structure\nYou can use our service with as little as 0 Ft investment capital\nOur prices include the rental of the machine, the coffee used, and any necessary service\nNo extra operating fees or hidden costs!"
+  },
+  "Contact": {
+    "Id": "contact",
+    "Title": "Contact",
+    "Description": "Email: urszulycs@t-online.hu\nPhone - Szeged: +36-20-9594226\nPhone - Budapest: +36-20-2938244"
+  }
+}
