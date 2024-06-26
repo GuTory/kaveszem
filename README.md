@@ -1,9 +1,13 @@
-# kaveszem
+# Kávészem
 
-# Images downloaded from 
+Website to describe my friend's company. 
 
-https://unsplash.com/photos/black-and-silver-coffee-maker-ftA71vetxuo
+## Technologies used
 
-https://corporatecoffee.com.my/espresso-yourself-a-beginners-guide-to-creating-latte-art/
+- Next.js
+- Chakra UI for UI components
+- framer-motion for animations
+- Tailwind CSS for CSS styling
+- next-intl for localization
+- Vercel for deployment
 
-https://unsplash.com/photos/black-and-silver-industrial-machine-EI50hwMVp28
