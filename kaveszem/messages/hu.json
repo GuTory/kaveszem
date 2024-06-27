@@ -23,5 +23,9 @@
     "Id": "elerhetoseg",
     "Title": "Elérhetőség",
     "Description": "E-mail: urszulycs@t-online.hu\nTelefon - Szeged: +36-20-9594226\nTelefon - Budapest: +36-20-2938244"
+  },
+  "Footer": {
+    "WebsiteBy": "Készítette",
+    "Description": "© 2024 Kávészem Bt. Minden jog fenntartva."
   }
 }

@@ -23,5 +23,9 @@
     "Id": "contact",
     "Title": "Contact",
     "Description": "Email: urszulycs@t-online.hu\nPhone - Szeged: +36-20-9594226\nPhone - Budapest: +36-20-2938244"
+  },
+  "Footer": {
+    "WebsiteBy": "Website by",
+    "Description": "© 2024 Kávészem Bt. All rights reserved."
   }
 }

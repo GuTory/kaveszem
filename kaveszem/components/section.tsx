@@ -1,6 +1,5 @@
 import { useBgColor } from "@/theme/theme";
 import { Container, Stack, StackDirection } from "@chakra-ui/react";
-import { Reveal } from "./reveal";
 
 interface ISectionProps {
 	direction: StackDirection;

@@ -2,7 +2,6 @@ import { useNavBarColor, useTextColor } from "@/theme/theme";
 import { Heading, List, ListIcon, ListItem, Stack } from "@chakra-ui/react";
 import { useTranslations } from "next-intl";
 import Link from "next/link";
-import { IconType } from "react-icons";
 import { MdPhone } from "react-icons/md";
 import { ListSectionProps } from "./list";
 
