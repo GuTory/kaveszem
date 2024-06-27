@@ -119,6 +119,7 @@ export default function Nav(props: NavProps) {
 						<Box
 							color={useTextColor()}
 							cursor={"pointer"}
+							fontWeight={"bold"}
 							onClick={() => {
 								window.scrollTo({
 									top: 0,
@@ -162,6 +163,7 @@ export default function Nav(props: NavProps) {
 								{locale === "en" ? "EN" : "HU"}
 							</Button>
 							<Button
+								px={0}
 								onClick={toggleColorMode}
 								rounded={"full"}
 								variant="ghost"

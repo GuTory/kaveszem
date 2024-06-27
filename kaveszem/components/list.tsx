@@ -13,7 +13,7 @@ interface ListSectionContentProps {
 }
 
 interface ListSectionAppearanceProps {
-	icon?: IconType;
+	icon?: IconType | null;
 	fontSize?: { base: string; sm: string; lg: string };
 }
 

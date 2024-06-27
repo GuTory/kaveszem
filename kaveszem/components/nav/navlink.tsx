@@ -14,13 +14,14 @@ const NavLink = (props: NavLinkProps) => {
 			py={0}
 			w={"fit-content"}
 			rounded={"md"}
+			fontWeight={"bold"}
 			position={"relative"}
 			color={useTextColor()}
 			_after={{
 				content: "''",
 				position: "absolute",
 				width: "0",
-				height: "1px",
+				height: "2px",
 				background: useTextColor(),
 				bottom: "0",
 				left: "0",
