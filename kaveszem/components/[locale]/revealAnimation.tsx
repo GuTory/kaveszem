@@ -5,7 +5,7 @@ interface RevealProps {
 	children: React.ReactNode;
 }
 
-export const Reveal = ({ children }: RevealProps) => {
+export const RevealAnimation = ({ children }: RevealProps) => {
 	const ref = useRef(null);
 	const isInView = useInView(ref, { once: true });
 

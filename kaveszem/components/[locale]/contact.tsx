@@ -3,14 +3,14 @@ import { Heading, List, ListIcon, ListItem, Stack } from "@chakra-ui/react";
 import { useTranslations } from "next-intl";
 import Link from "next/link";
 import { MdPhone } from "react-icons/md";
-import { ListSectionProps } from "./list";
+import * as list from "./listSection";
 
 export default function ContactSection() {
 	const afterElementcolor = useNavBarColor();
 	const textColor = useTextColor();
 	const t = useTranslations("Contact");
 
-	const contactInfo: ListSectionProps = {
+	const contactInfo: list.ListSectionProps = {
 		id: t("Id"),
 		title: t("Title"),
 		items: t("Description").split("\n"),

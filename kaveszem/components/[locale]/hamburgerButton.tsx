@@ -6,7 +6,7 @@ interface HamburgerButtonProps {
 	onClick: () => void;
 }
 
-const AnimatedHamburgerButton = (props: HamburgerButtonProps) => {
+const HamburgerButton = (props: HamburgerButtonProps) => {
 	const [active, setActive] = useState(false);
 	const controls = useAnimationControls();
 
@@ -91,4 +91,4 @@ const AnimatedHamburgerButton = (props: HamburgerButtonProps) => {
 	);
 };
 
-export default AnimatedHamburgerButton;
+export default HamburgerButton;

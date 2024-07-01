@@ -1,14 +1,14 @@
 "use client";
 
-import Nav from "../../components/nav/nav";
-import ImageComponent from "../../components/image";
-import Section from "../../components/section";
-import ListSection from "../../components/list";
-import ContactSection from "../../components/contact";
+import Nav from "../../components/[locale]/navbar";
+import ImageComponent from "../../components/[locale]/imageComponent";
+import Section from "../../components/[locale]/section";
+import ListSection from "../../components/[locale]/listSection";
+import ContactSection from "../../components/[locale]/contact";
 import { useTranslations } from "next-intl";
-import { Reveal } from "@/components/reveal";
+import { RevealAnimation } from "@/components/[locale]/revealAnimation";
 import { SectionInfo } from "@/providers/sectioninfo";
-import Footer from "../../components/footer";
+import Footer from "../../components/[locale]/footer";
 
 export default function Home() {
 	const t = useTranslations();
@@ -30,7 +30,7 @@ export default function Home() {
 					key={index}
 					direction={section.direction}
 				>
-					<Reveal>
+					<RevealAnimation>
 						{section.isContactSection ? (
 							<ContactSection />
 						) : (
@@ -44,15 +44,15 @@ export default function Home() {
 								}}
 							/>
 						)}
-					</Reveal>
-					<Reveal>
+					</RevealAnimation>
+					<RevealAnimation>
 						<ImageComponent src={section.imgSrc} />
-					</Reveal>
+					</RevealAnimation>
 				</Section>
 			))}
-			<Reveal>
+			<RevealAnimation>
 				<Footer />
-			</Reveal>
+			</RevealAnimation>
 		</>
 	);
 }
