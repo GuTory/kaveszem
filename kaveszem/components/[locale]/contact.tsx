@@ -3,17 +3,17 @@ import { Heading, List, ListIcon, ListItem, Stack } from "@chakra-ui/react";
 import { useTranslations } from "next-intl";
 import Link from "next/link";
 import { MdPhone } from "react-icons/md";
-import * as list from "./listSection";
 
 export default function ContactSection() {
 	const afterElementcolor = useNavBarColor();
 	const textColor = useTextColor();
 	const t = useTranslations("Contact");
 
-	const contactInfo: list.ListSectionProps = {
+	const contactInfo = {
 		id: t("Id"),
 		title: t("Title"),
 		items: t("Description").split("\n"),
+		metaInfo: t("MetaDescription").split("\n"),
 		icon: MdPhone,
 	};
 
@@ -28,45 +28,26 @@ export default function ContactSection() {
 				lineHeight={1.1}
 				fontWeight={600}
 				color={textColor}
-				fontSize={
-					contactInfo.fontSize
-						? contactInfo.fontSize
-						: { base: "xl", sm: "2xl", lg: "3xl" }
-				}
+				fontSize={{ base: "xl", sm: "2xl", lg: "3xl" }}
 			>
 				{contactInfo.title}
 			</Heading>
 
 			<List spacing={{ base: 3, md: 6 }}>
-				<ListItem color={textColor}>
-					{contactInfo.icon ? (
-						<ListIcon
-							as={contactInfo.icon}
-							color={afterElementcolor}
-						/>
-					) : null}
-					<Link href="mailto:urszulycs@t-online.hu">
-						{contactInfo.items[0]}
-					</Link>
-				</ListItem>
-				<ListItem color={textColor}>
-					{contactInfo.icon ? (
-						<ListIcon
-							as={contactInfo.icon}
-							color={afterElementcolor}
-						/>
-					) : null}
-					<Link href="tel:+36209594226">{contactInfo.items[1]}</Link>
-				</ListItem>
-				<ListItem color={textColor}>
-					{contactInfo.icon ? (
-						<ListIcon
-							as={contactInfo.icon}
-							color={afterElementcolor}
-						/>
-					) : null}
-					<Link href="tel:+36202938244">{contactInfo.items[2]}</Link>
-				</ListItem>
+				{contactInfo.items.map((item, index) => {
+					return (
+						<ListItem
+							color={textColor}
+							key={index}
+						>
+							<ListIcon
+								as={contactInfo.icon}
+								color={afterElementcolor}
+							/>
+							<Link href={contactInfo.metaInfo[index]}>{item}</Link>
+						</ListItem>
+					);
+				})}
 			</List>
 		</Stack>
 	);

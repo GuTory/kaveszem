@@ -22,7 +22,8 @@
   "Contact": {
     "Id": "contact",
     "Title": "Contact",
-    "Description": "Email: urszulycs@t-online.hu\nPhone - Szeged: +36-20-9594226\nPhone - Budapest: +36-20-2938244"
+    "Description": "Email: urszulycs@t-online.hu\nPhone - Szeged: +36-20-9594226\nPhone - Budapest: +36-20-2938244",
+    "MetaDescription": "mailto:urszulycs@t-online.hu\ntel:+36209594226\ntel:+36202938244"
   },
   "Footer": {
     "WebsiteBy": "Website by",

@@ -22,7 +22,8 @@
   "Contact": {
     "Id": "elerhetoseg",
     "Title": "Elérhetőség",
-    "Description": "E-mail: urszulycs@t-online.hu\nTelefon - Szeged: +36-20-9594226\nTelefon - Budapest: +36-20-2938244"
+    "Description": "E-mail: urszulycs@t-online.hu\nTelefon - Szeged: +36-20-9594226\nTelefon - Budapest: +36-20-2938244",
+    "MetaDescription": "mailto:urszulycs@t-online.hu\ntel:+36209594226\ntel:+36202938244"
   },
   "Footer": {
     "WebsiteBy": "Készítette",
