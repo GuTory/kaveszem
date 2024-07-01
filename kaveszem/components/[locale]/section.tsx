@@ -11,7 +11,6 @@ export default function Section(props: ISectionProps) {
 		<Container
 			maxW={"6xl"}
 			centerContent
-			bg={useBgColor()}
 		>
 			<Stack
 				align={{ base: "left", md: "center" }}

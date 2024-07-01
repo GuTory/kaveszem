@@ -1,14 +1,16 @@
 "use client";
 
-import Nav from "../../components/[locale]/navbar";
-import ImageComponent from "../../components/[locale]/imageComponent";
-import Section from "../../components/[locale]/section";
-import ListSection from "../../components/[locale]/listSection";
-import ContactSection from "../../components/[locale]/contact";
+import Nav from "@/components/[locale]/navbar";
+import ImageComponent from "@/components/[locale]/imageComponent";
+import Section from "@/components/[locale]/section";
+import ListSection from "@/components/[locale]/listSection";
+import ContactSection from "@/components/[locale]/contact";
 import { useTranslations } from "next-intl";
 import { RevealAnimation } from "@/components/[locale]/revealAnimation";
 import { SectionInfo } from "@/providers/sectioninfo";
-import Footer from "../../components/[locale]/footer";
+import Footer from "@/components/[locale]/footer";
+import { Image, Spacer } from "@chakra-ui/react";
+import { unsplashUrls } from "@/providers/url";
 
 export default function Home() {
 	const t = useTranslations();
@@ -25,6 +27,18 @@ export default function Home() {
 	return (
 		<>
 			<Nav links={links} />
+			<Image
+				position={"absolute"}
+				top={0}
+				left={0}
+				fit={"cover"}
+				src={unsplashUrls.cover}
+				alt="Coffee beans"
+				align={"center"}
+				w={"100dvw"}
+				h={"100dvh"}
+				zIndex={-1}
+			/>
 			{sections.map((section, index) => (
 				<Section
 					key={index}
@@ -50,9 +64,8 @@ export default function Home() {
 					</RevealAnimation>
 				</Section>
 			))}
-			<RevealAnimation>
-				<Footer />
-			</RevealAnimation>
+			<Spacer />
+			<Footer />
 		</>
 	);
 }
