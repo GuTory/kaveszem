@@ -2,8 +2,9 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { getMessages } from "next-intl/server";
 import { NextIntlClientProvider } from "next-intl";
-import { Providers } from "@/providers/chakra";
+import Providers from "@/providers/providers";
 import { Locale } from "@/locales";
+import React from "react";
 
 export const metadata: Metadata = {
 	title: "Kávészem",
@@ -27,7 +28,9 @@ const RootLayout: React.FC<Props> = async (props) => {
 		>
 			<body>
 				<NextIntlClientProvider messages={messages}>
-					<Providers>{props.children}</Providers>
+					<React.StrictMode>
+						<Providers>{props.children}</Providers>
+					</React.StrictMode>
 				</NextIntlClientProvider>
 			</body>
 		</html>

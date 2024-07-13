@@ -2,9 +2,10 @@ import { useNavBarColor, useTextColor } from "@/theme/theme";
 import { Heading, List, ListIcon, ListItem, Stack } from "@chakra-ui/react";
 import { useTranslations } from "next-intl";
 import Link from "next/link";
+import React from "react";
 import { MdPhone } from "react-icons/md";
 
-export default function ContactSection() {
+const ContactSection = () => {
 	const afterElementcolor = useNavBarColor();
 	const textColor = useTextColor();
 	const t = useTranslations("Contact");
@@ -51,4 +52,6 @@ export default function ContactSection() {
 			</List>
 		</Stack>
 	);
-}
+};
+
+export default ContactSection;

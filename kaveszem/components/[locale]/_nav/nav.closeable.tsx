@@ -1,5 +1,5 @@
 import { Box, Stack } from "@chakra-ui/react";
-import NavLink from "./navLink";
+import NavLink from "./nav.link";
 
 interface CloseAbleNavigationProps {
 	links: string[][];

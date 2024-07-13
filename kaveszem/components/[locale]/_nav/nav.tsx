@@ -1,48 +1,83 @@
 "use client";
 
-import { Box, Flex, HStack, Stack, useBreakpointValue } from "@chakra-ui/react";
+import { Box, Flex, HStack, useBreakpointValue } from "@chakra-ui/react";
 import { useNavBarColor, useTextColor } from "@/theme/theme";
-import HamburgerButton from "./hamburgerButton";
-import NavLink from "./navLink";
+import ToggleCloseable from "../_button/toggle.closeable";
+import NavLink from "./nav.link";
 import {
 	motion,
 	useScroll,
 	useMotionValueEvent,
 	MotionConfig,
 } from "framer-motion";
-import { useState } from "react";
-import ToggleSection from "./toggleSection";
-import CloseableNavigation from "./closeableNavigation";
+import ToggleLayout from "../_layout/toggle.layout";
+import CloseableNavigation from "./nav.closeable";
+import { useDispatch, useSelector } from "react-redux";
+import { bindActionCreators } from "redux";
+import { actionCreators } from "@/state";
+import { NavbarState } from "@/state/reducers";
+import { navbarStateType } from "@/state/action-types";
+import { useEffect, useState } from "react";
 
 interface NavProps {
 	links: string[][];
 }
 
-export default function Navbar(props: NavProps) {
+export default function Nav(props: NavProps) {
 	const [isOpen, setIsOpen] = useState(false);
-	const [isRoundedAndNarrow, setIsNarrow] = useState(false);
+	const dispatch = useDispatch();
+	const { setFull, setNarrow, setMobile } = bindActionCreators(
+		actionCreators,
+		dispatch
+	);
+	const state = useSelector((state: NavbarState) => state.navbar);
+
 	const companyName = "Kávészem";
 
 	const getOffset = () => {
 		return isOpen ? -280 : -80;
 	};
 
-	let breakPointValue = useBreakpointValue({ base: false, md: true });
-
+	let breakPointValue = useBreakpointValue({
+		base: navbarStateType.Mobile,
+		md: navbarStateType.Full,
+	});
 	const { scrollY } = useScroll();
 
+	useEffect(() => {
+		switch (breakPointValue) {
+			case navbarStateType.Full:
+				if (scrollY.get() > 100) setNarrow();
+				else setFull();
+				break;
+			case navbarStateType.Mobile:
+				setMobile();
+				break;
+			default:
+				break;
+		}
+	}, [breakPointValue, scrollY, setFull, setMobile, setNarrow]);
+
 	useMotionValueEvent(scrollY, "change", () => {
-		if (scrollY.get() > 100 && breakPointValue) {
-			setIsNarrow(true);
-		} else {
-			setIsNarrow(false);
+		switch (breakPointValue) {
+			case navbarStateType.Full:
+				if (scrollY.get() > 100) {
+					setNarrow();
+				} else {
+					setFull();
+				}
+				break;
+			case navbarStateType.Mobile:
+				setMobile();
+				break;
+			default:
+				break;
 		}
 	});
 
 	return (
 		<MotionConfig transition={{ duration: 0.4, ease: "easeInOut" }}>
 			<motion.nav
-				initial={false}
 				className="z-50 px-5 m-auto box-border"
 				variants={{
 					full: {
@@ -52,8 +87,7 @@ export default function Navbar(props: NavProps) {
 						minWidth: "fit-content",
 						maxWidth: "100%",
 						borderRadius: "0",
-						backgroundColor: "transparent",
-						className: "",
+						className: "bg-opacity-0",
 					},
 					narrow: {
 						position: "sticky",
@@ -62,10 +96,28 @@ export default function Navbar(props: NavProps) {
 						maxWidth: "40%",
 						borderRadius: "9999px",
 						backgroundColor: useNavBarColor(),
-						className: "glassy",
+						className: "bg-opacity-100 glassy",
+					},
+					mobile: {
+						position: "sticky",
+						width: "100%",
+						top: 0,
+						minWidth: "fit-content",
+						maxWidth: "100%",
+						borderRadius: "0",
+						backgroundColor: useNavBarColor(),
+						className: "bg-opacity-100 glassy",
 					},
 				}}
-				animate={isRoundedAndNarrow ? "narrow" : "full"}
+				animate={
+					state === navbarStateType.Full
+						? "full"
+						: state === navbarStateType.Narrow
+						? "narrow"
+						: state === navbarStateType.Mobile
+						? "mobile"
+						: "full"
+				}
 			>
 				<Flex
 					w={"full"}
@@ -73,12 +125,9 @@ export default function Navbar(props: NavProps) {
 					alignItems={"center"}
 					justifyContent={"space-between"}
 				>
-					<HamburgerButton
+					<ToggleCloseable
 						onClick={() => {
 							setIsOpen(!isOpen);
-							if (isOpen) {
-								setIsNarrow(false);
-							}
 						}}
 					/>
 					<HStack
@@ -127,7 +176,7 @@ export default function Navbar(props: NavProps) {
 							))}
 						</HStack>
 					</HStack>
-					<ToggleSection />
+					<ToggleLayout />
 				</Flex>
 				<CloseableNavigation
 					links={props.links}

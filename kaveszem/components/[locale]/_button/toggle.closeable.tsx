@@ -6,7 +6,7 @@ interface HamburgerButtonProps {
 	onClick: () => void;
 }
 
-const HamburgerButton = (props: HamburgerButtonProps) => {
+const ToggleCloseable = (props: HamburgerButtonProps) => {
 	const [active, setActive] = useState(false);
 	const controls = useAnimationControls();
 
@@ -91,4 +91,4 @@ const HamburgerButton = (props: HamburgerButtonProps) => {
 	);
 };
 
-export default HamburgerButton;
+export default ToggleCloseable;

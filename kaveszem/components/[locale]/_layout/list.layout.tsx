@@ -1,5 +1,6 @@
 import { useNavBarColor, useTextColor } from "@/theme/theme";
 import { Heading, List, ListIcon, ListItem, Stack } from "@chakra-ui/react";
+import React from "react";
 import { IconType } from "react-icons";
 
 export interface ListSectionProps
@@ -17,7 +18,7 @@ interface ListSectionAppearanceProps {
 	fontSize?: { base: string; sm: string; lg: string };
 }
 
-export default function ListSection(props: ListSectionProps) {
+const ListLayout = (props: ListSectionProps) => {
 	const afterElementcolor = useNavBarColor();
 	const textColor = useTextColor();
 
@@ -59,4 +60,6 @@ export default function ListSection(props: ListSectionProps) {
 			</List>
 		</Stack>
 	);
-}
+};
+
+export default ListLayout;

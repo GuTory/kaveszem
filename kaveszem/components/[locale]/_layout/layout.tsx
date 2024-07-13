@@ -6,7 +6,7 @@ interface ISectionProps {
 	children: React.ReactNode;
 }
 
-export default function Section(props: ISectionProps) {
+export default function Layout(props: ISectionProps) {
 	return (
 		<Container
 			maxW={"6xl"}

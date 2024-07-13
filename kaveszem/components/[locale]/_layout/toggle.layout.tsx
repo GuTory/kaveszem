@@ -1,8 +1,8 @@
 import { Flex, Stack } from "@chakra-ui/react";
-import ToggleColorModeButton from "./toggleColorModeButton";
-import ToggleLocaleButton from "./toggleLocaleButton";
+import ToggleColorModeButton from "../_button/toggle.colorMode";
+import ToggleLocaleButton from "../_button/toggle.locale";
 
-export default function ToggleSection() {
+export default function ToggleLayout() {
 	return (
 		<Flex alignItems={"center"}>
 			<Stack

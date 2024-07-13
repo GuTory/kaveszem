@@ -1,10 +1,11 @@
 import { Box, Flex, Image } from "@chakra-ui/react";
+import React from "react";
 
 interface ImageComponentProps {
 	src: string;
 }
 
-export default function ImageComponent(props: ImageComponentProps) {
+const ImageComponent = (props: ImageComponentProps) => {
 	return (
 		<Flex
 			flex={1}
@@ -32,4 +33,6 @@ export default function ImageComponent(props: ImageComponentProps) {
 			</Box>
 		</Flex>
 	);
-}
+};
+
+export default ImageComponent;

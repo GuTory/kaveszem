@@ -1,9 +1,10 @@
-import { useBgColor, useNavBarColor } from "@/theme/theme";
+import { useNavBarColor, useBgColor } from "@/theme/theme";
 import { Box, Divider, Text } from "@chakra-ui/react";
 import { useTranslations } from "next-intl";
+import React from "react";
 import { FaGithub } from "react-icons/fa";
 
-export default function Footer() {
+const Footer = () => {
 	const t = useTranslations();
 
 	return (
@@ -51,4 +52,6 @@ export default function Footer() {
 			</Box>
 		</Box>
 	);
-}
+};
+
+export default Footer;

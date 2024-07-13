@@ -1,19 +1,36 @@
 "use client";
 
-import Nav from "@/components/[locale]/navbar";
-import ImageComponent from "@/components/[locale]/imageComponent";
-import Section from "@/components/[locale]/section";
-import ListSection from "@/components/[locale]/listSection";
-import ContactSection from "@/components/[locale]/contact";
+import { Image, Spacer } from "@chakra-ui/react";
 import { useTranslations } from "next-intl";
-import { RevealAnimation } from "@/components/[locale]/revealAnimation";
+import Nav from "@/components/[locale]/_nav/nav";
+import ImageComponent from "@/components/[locale]/image";
+import Layout from "@/components/[locale]/_layout/layout";
+import ListLayout from "@/components/[locale]/_layout/list.layout";
+import ContactSection from "@/components/[locale]/contact";
+import { RevealAnimation } from "@/components/[locale]/_animation/reveal.animation";
 import { SectionInfo } from "@/providers/sectioninfo";
 import Footer from "@/components/[locale]/footer";
-import { Image, Spacer } from "@chakra-ui/react";
-import { unsplashUrls } from "@/providers/url";
+import unsplashUrls from "@/providers/url";
+import Lenis from "lenis";
+import { useEffect } from "react";
 
 export default function Home() {
 	const t = useTranslations();
+
+	useEffect(() => {
+		const lenis = new Lenis();
+
+		lenis.on("scroll", (e: any) => {
+			console.log(e);
+		});
+
+		function raf(time: any) {
+			lenis.raf(time);
+			requestAnimationFrame(raf);
+		}
+
+		requestAnimationFrame(raf);
+	}, []);
 
 	const links = [
 		[t("Services.Title"), t("Services.Id")],
@@ -40,7 +57,7 @@ export default function Home() {
 				zIndex={-1}
 			/>
 			{sections.map((section, index) => (
-				<Section
+				<Layout
 					key={index}
 					direction={section.direction}
 				>
@@ -48,7 +65,7 @@ export default function Home() {
 						{section.isContactSection ? (
 							<ContactSection />
 						) : (
-							<ListSection
+							<ListLayout
 								{...{
 									id: section.id,
 									title: section.title,
@@ -62,7 +79,7 @@ export default function Home() {
 					<RevealAnimation>
 						<ImageComponent src={section.imgSrc} />
 					</RevealAnimation>
-				</Section>
+				</Layout>
 			))}
 			<Spacer />
 			<Footer />

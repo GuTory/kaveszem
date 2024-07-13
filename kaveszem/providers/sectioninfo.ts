@@ -1,6 +1,6 @@
 import { StackDirection } from "@chakra-ui/react";
 import { useTranslations } from "next-intl";
-import { unsplashUrls } from "./url";
+import unsplashUrls from "./url";
 import { MdCheck, MdCoffeeMaker } from "react-icons/md";
 
 export interface SectionInfo {
@@ -15,9 +15,9 @@ export interface SectionInfo {
 }
 
 export const SectionInfo = () => {
-  const t = useTranslations();
-  
-  const sections: SectionInfo[] = [
+	const t = useTranslations();
+
+	const sections: SectionInfo[] = [
 		{
 			id: t("About.Id"),
 			title: t("About.Title"),
@@ -62,5 +62,5 @@ export const SectionInfo = () => {
 		},
 	];
 
-  return sections;
-}
+	return sections;
+};
