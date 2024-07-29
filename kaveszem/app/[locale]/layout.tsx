@@ -1,40 +1,29 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import { getMessages } from "next-intl/server";
-import { NextIntlClientProvider } from "next-intl";
-import Providers from "@/providers/providers";
-import { Locale } from "@/locales";
+
 import React from "react";
+import SmoothScroll from "@/components/[locale]/utils/smoothScroll";
+import Providers from "@/components/[locale]/utils/chakra";
 
 export const metadata: Metadata = {
 	title: "Kávészem",
 	description: "made by Kristoth",
 };
 
-type Props = {
+export default function RootLayout({
+	children,
+}: {
 	children: React.ReactNode;
-	params: {
-		locale: Locale;
-	};
-};
-
-const RootLayout: React.FC<Props> = async (props) => {
-	const messages = await getMessages();
-
+}) {
 	return (
-		<html
-			lang={props.params.locale}
-			suppressHydrationWarning={true}
-		>
+		<html lang="en">
 			<body>
-				<NextIntlClientProvider messages={messages}>
-					<React.StrictMode>
-						<Providers>{props.children}</Providers>
-					</React.StrictMode>
-				</NextIntlClientProvider>
+				<main>
+					<Providers>
+						<SmoothScroll>{children}</SmoothScroll>
+					</Providers>
+				</main>
 			</body>
 		</html>
 	);
-};
-
-export default RootLayout;
+}
