@@ -1,0 +1,7 @@
+{
+  "buildCommand": "cd kaveszem && npm run build",
+  "devCommand": "cd kaveszem && npm run dev",
+  "installCommand": "cd kaveszem && npm install",
+  "framework": "nextjs",
+  "outputDirectory": "kaveszem/.next"
+}
