@@ -27,5 +27,29 @@
   "Footer": {
     "WebsiteBy": "Készítette",
     "Description": "© 2024 Kávészem Bt. Minden jog fenntartva."
+  },
+  "Quote": {
+    "Button": "Árajánlat kérése",
+    "Title": "Kérjen árajánlatot",
+    "Email": "Email cím",
+    "City": "Üzlet helye (város)",
+    "Company": "Cég neve",
+    "Type": "Üzlet típusa",
+    "TypeOptions": {
+      "Tobacco": "Dohánybolt",
+      "Restaurant": "Étterem",
+      "Cafe": "Kávézó",
+      "Office": "Iroda",
+      "Other": "Egyéb"
+    },
+    "Consumption": "Napi várható fogyás (adag)",
+    "CoffeeBrand": "Preferált kávé típus/márka (opcionális)",
+    "Submit": "Küldés",
+    "Sending": "Küldés folyamatban...",
+    "Close": "Mégse",
+    "SuccessTitle": "Sikeres küldés!",
+    "SuccessMessage": "Az árajánlatkérést sikeresen továbbítottuk. Hamarosan felvesszük Önnel a kapcsolatot.",
+    "ErrorTitle": "Hiba történt",
+    "ErrorMessage": "Sajnos nem sikerült elküldeni az árajánlatkérést. Kérjük, próbálja újra később, vagy keressen minket telefonon."
   }
 }

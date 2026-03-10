@@ -27,5 +27,29 @@
   "Footer": {
     "WebsiteBy": "Website by",
     "Description": "© 2024 Kávészem Bt. All rights reserved."
+  },
+  "Quote": {
+    "Button": "Request a Quote",
+    "Title": "Request a Quote",
+    "Email": "Email address",
+    "City": "Location (City)",
+    "Company": "Company name",
+    "Type": "Business type",
+    "TypeOptions": {
+      "Tobacco": "Tobacco shop",
+      "Restaurant": "Restaurant",
+      "Cafe": "Cafe",
+      "Office": "Office",
+      "Other": "Other"
+    },
+    "Consumption": "Expected daily consumption (portions)",
+    "CoffeeBrand": "Preferred coffee type/brand (optional)",
+    "Submit": "Send",
+    "Sending": "Sending...",
+    "Close": "Cancel",
+    "SuccessTitle": "Successfully sent!",
+    "SuccessMessage": "Your quote request has been successfully sent. We will contact you shortly.",
+    "ErrorTitle": "An error occurred",
+    "ErrorMessage": "Unfortunately, the quote request could not be sent. Please try again later or contact us by phone."
   }
 }

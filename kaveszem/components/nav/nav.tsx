@@ -19,13 +19,14 @@ import {
 	useMotionValueEvent,
 	MotionConfig,
 } from "framer-motion";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Locale } from "@/locales";
-import { useLocale } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import { useRouter } from "next/navigation";
 
 interface NavProps {
 	links: string[][];
+	onQuoteClick: () => void;
 }
 
 export default function Nav(props: NavProps) {
@@ -52,6 +53,7 @@ export default function Nav(props: NavProps) {
 			top: y,
 			behavior: "smooth",
 		});
+		setIsOpen(false);
 	};
 
 	let breakPointValue = useBreakpointValue({ base: false, md: true });
@@ -71,17 +73,27 @@ export default function Nav(props: NavProps) {
 		router.refresh();
 	}
 
+	const textColor = useTextColor();
+	const navBarColor = useNavBarColor();
+	const t = useTranslations("Quote");
+	const [mounted, setMounted] = useState(false);
+
+	useEffect(() => {
+		setMounted(true);
+	}, []);
+
 	return (
 		<MotionConfig transition={{ duration: 0.4, ease: "easeInOut" }}>
 			<motion.nav
 				initial={false}
 				className="glassy z-50 px-5 m-auto box-border"
 				style={{
-					backgroundColor: useNavBarColor(),
+					backgroundColor: navBarColor,
+					opacity: mounted ? 1 : 0,
 				}}
 				variants={{
 					full: {
-						position: "sticky",
+						position: "fixed",
 						width: "100%",
 						top: 0,
 						minWidth: "fit-content",
@@ -89,18 +101,22 @@ export default function Nav(props: NavProps) {
 						borderRadius: "0",
 					},
 					narrow: {
-						position: "sticky",
-						top: "0.5rem",
+						position: "fixed",
+						top: "1rem",
 						minWidth: "fit-content",
-						maxWidth: "40%",
+						maxWidth: "50%",
+						left: "0",
+						right: "0",
+						margin: "0 auto",
 						borderRadius: "9999px",
+						boxShadow: "0 10px 30px -10px rgba(0,0,0,0.3)",
 					},
 				}}
 				animate={isRoundedAndNarrow ? "narrow" : "full"}
 			>
 				<Flex
 					w={"full"}
-					h={12}
+					h={16}
 					alignItems={"center"}
 					justifyContent={"space-between"}
 				>
@@ -117,9 +133,12 @@ export default function Nav(props: NavProps) {
 						alignItems={"center"}
 					>
 						<Box
-							color={useTextColor()}
+							color={textColor}
 							cursor={"pointer"}
-							fontWeight={"bold"}
+							fontWeight={"extrabold"}
+							fontSize="xl"
+							letterSpacing="widest"
+							textTransform="uppercase"
 							onClick={() => {
 								window.scrollTo({
 									top: 0,
@@ -131,16 +150,32 @@ export default function Nav(props: NavProps) {
 						</Box>
 						<HStack
 							as={"nav"}
-							spacing={4}
+							spacing={6}
 							display={{ base: "none", md: "flex" }}
 							onClick={clickEvent}
 						>
-							{props.links.map((link) => (
+							{props.links.slice(0, -1).map((link) => (
 								<NavLink
 									key={link[0]}
 									links={link}
 								/>
 							))}
+							<Button
+								onClick={props.onQuoteClick}
+								variant="solid"
+								bg={textColor}
+								color={navBarColor}
+								rounded="full"
+								px={6}
+								_hover={{ opacity: 0.8 }}
+								fontWeight="bold"
+							>
+								{t("Button")}
+							</Button>
+							<NavLink
+								key={props.links[props.links.length - 1][0]}
+								links={props.links[props.links.length - 1]}
+							/>
 						</HStack>
 					</HStack>
 					<Flex alignItems={"center"}>
@@ -155,10 +190,10 @@ export default function Nav(props: NavProps) {
 								}
 								rounded={"full"}
 								variant="ghost"
-								ml={20}
-								color={useTextColor()}
+								ml={{ base: 2, md: 10 }}
+								color={textColor}
 								cursor={"pointer"}
-								_hover={{ bg: useNavBarColor() }}
+								_hover={{ bg: "blackAlpha.200", _dark: { bg: "whiteAlpha.200" } }}
 							>
 								{locale === "en" ? "EN" : "HU"}
 							</Button>
@@ -167,11 +202,11 @@ export default function Nav(props: NavProps) {
 								onClick={toggleColorMode}
 								rounded={"full"}
 								variant="ghost"
-								color={useTextColor()}
+								color={textColor}
 								cursor={"pointer"}
-								_hover={{ bg: useNavBarColor() }}
+								_hover={{ bg: "blackAlpha.200", _dark: { bg: "whiteAlpha.200" } }}
 							>
-								{colorMode === "light" ? <SunIcon /> : <MoonIcon />}
+								{mounted ? (colorMode === "light" ? <SunIcon /> : <MoonIcon />) : <Box w={4} h={4} />}
 							</Button>
 						</Stack>
 					</Flex>
@@ -186,12 +221,29 @@ export default function Nav(props: NavProps) {
 							spacing={4}
 							onClick={clickEvent}
 						>
-							{props.links.map((link) => (
+							{props.links.slice(0, -1).map((link) => (
 								<NavLink
 									key={link[0]}
 									links={link}
 								/>
 							))}
+							<Button
+								onClick={props.onQuoteClick}
+								variant="solid"
+								bg={textColor}
+								color={navBarColor}
+								rounded="full"
+								w="fit-content"
+								px={6}
+								_hover={{ opacity: 0.8 }}
+								fontWeight="bold"
+							>
+								{t("Button")}
+							</Button>
+							<NavLink
+								key={props.links[props.links.length - 1][0]}
+								links={props.links[props.links.length - 1]}
+							/>
 						</Stack>
 					</Box>
 				) : null}
